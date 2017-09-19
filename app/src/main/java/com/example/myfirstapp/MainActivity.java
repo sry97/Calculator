@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     String input = "";
     EditText editText;
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {//将资源菜单文件加载到主界面中
         MenuInflater inflater = getMenuInflater();

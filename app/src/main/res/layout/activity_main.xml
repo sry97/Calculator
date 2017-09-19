@@ -27,12 +27,21 @@
         android:layout_weight="1"
         android:orientation="horizontal">
         <Button
+            android:id="@+id/btn_x2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="²"
+            android:textSize="30sp" />
+
+        <Button
             android:id="@+id/btn_sin"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="sin"
-            android:textSize="25sp" />
+            android:textSize="30sp"
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/btn_clear"
@@ -72,12 +81,21 @@
         android:layout_weight="1"
         android:orientation="horizontal">
         <Button
+            android:id="@+id/btn_x3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="³"
+            android:textSize="30sp" />
+
+        <Button
             android:id="@+id/btn_cos"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="cos"
-            android:textSize="25sp" />
+            android:textSize="30sp"
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/btn_7"
@@ -119,12 +137,22 @@
         android:layout_weight="1"
         android:orientation="horizontal">
         <Button
-            android:id="@+id/btn_x2"
+            android:id="@+id/btn_sqrt"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="x²"
+            android:text="√"
             android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/btn_tan"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="tan"
+            android:textSize="30sp"
+            android:textAllCaps="false" />
+
 
         <Button
             android:id="@+id/btn_4"
@@ -165,11 +193,20 @@
         android:layout_weight="1"
         android:orientation="horizontal">
         <Button
-            android:id="@+id/btn_x3"
+            android:id="@+id/btn_mi"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="x³"
+            android:text="x^y"
+            android:textSize="30sp"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_ln"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="㏑"
             android:textSize="30sp" />
 
         <Button
@@ -211,13 +248,21 @@
         android:layout_weight="1"
         android:orientation="horizontal">
         <Button
-            android:id="@+id/btn_sqrt"
+            android:id="@+id/btn_factorial"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="√"
-            android:textSize="30sp" />
+            android:text="n!"
+            android:textSize="30sp"
+            android:textAllCaps="false" />
 
+        <Button
+            android:id="@+id/btn_percent"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="%"
+            android:textSize="25sp" />
         <Button
             android:id="@+id/btn_0"
             android:layout_width="0dp"

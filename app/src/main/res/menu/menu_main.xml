@@ -7,9 +7,15 @@
         android:orderInCategory="100"
         app:showAsAction="never"/>
     <item
+        android:id="@+id/binary"
+        android:title="进制转换"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/exit"
         android:title="Exit"
         android:orderInCategory="100"
         app:showAsAction="never"/>
+
 
 </menu>

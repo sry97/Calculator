@@ -12,6 +12,16 @@
         android:orderInCategory="100"
         app:showAsAction="never" />
     <item
+        android:id="@+id/unit"
+        android:title="单位换算"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/owner"
+        android:title="制作人"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/exit"
         android:title="Exit"
         android:orderInCategory="100"

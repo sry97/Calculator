@@ -96,7 +96,7 @@
                 android:id="@+id/binary_out_hit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="请选择将要转换的目的进制："
+                android:text="请选择将要输出的目的进制："
                 android:textSize="20sp" />
         </LinearLayout>
 
@@ -167,11 +167,10 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="注意:   输入时请按照对应进制输入符合规定的字符"
+                android:text="注意:   输入字符若不符合所属进制，将不进行转换"
                 android:textSize="25dp" />
         </LinearLayout>
     </LinearLayout>

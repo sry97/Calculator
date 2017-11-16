@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.myfirstapp.Binary"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/unit_input1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/unit_temp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="°C --> K"
+            android:textSize="25dp" />
+
+        <TextView
+            android:id="@+id/unit_out1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="25dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/unit_input2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/unit_temp2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="度-->弧度"
+            android:textSize="25dp" />
+
+        <TextView
+            android:id="@+id/unit_out2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="25dp"
+            android:maxLines="1" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_unit_tran"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="转换" />
+
+    <Button
+        android:id="@+id/btn_unit_clear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="清空" />
+</LinearLayout>

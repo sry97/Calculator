@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import java.util.Stack;
 
@@ -36,6 +37,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.binary:
                 Intent intent_binary = new Intent(MainActivity.this, Binary.class);
                 startActivity(intent_binary);
+                break;
+            case R.id.unit:
+                Intent intent_unit = new Intent(MainActivity.this, unit_conversion.class);
+                startActivity(intent_unit);
+                break;
+            case R.id.owner:
+                Toast.makeText(this, "Copyright© 2017 By 沈荣耀.All rights reserved.", Toast.LENGTH_LONG).show();
                 break;
             case R.id.exit:
                 System.exit(0);
@@ -134,7 +142,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         input = editText.getText().toString();
         input = input + string;
         editText.setText(input);
-
     }
 
     public void operate(Stack<Double> number, Stack<Character> operator) {//进行+-x÷，y次幂 运算操作
@@ -150,8 +157,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else if (oper == '÷') {
             number.push(num_2 / num_1);
         } else if (oper == '^') {
+            double itemp = num_2;
             for (int i = 0; i < num_1 - 1; i++) {
-                num_2 = num_2 * num_2;
+                num_2 = num_2 * itemp;
             }
             number.push(num_2);
         }
@@ -209,78 +217,79 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         String s = insert(string);
         String[] str = s.split(" ");
-
-        for (String st : str) {
-            if(st.length()==0){
-                continue;
-            } else if (st.charAt(0) == '+' || st.charAt(0) == '-') {//若当前字符为  + ， -
-                while (!operator.isEmpty() && (operator.peek() == '+' || operator.peek() == '-' || operator.peek() == 'x'
+        try {
+            for (String st : str) {
+                if (st.length() == 0) {
+                    continue;
+                } else if (st.charAt(0) == '+' || st.charAt(0) == '-') {//若当前字符为  + ， -
+                    while (!operator.isEmpty() && (operator.peek() == '+' || operator.peek() == '-' || operator.peek() == 'x'
                         || operator.peek() == '÷' || operator.peek() == '^')) {
-                    operate(number,operator);
-                }
-                while (!operator.isEmpty() && (operator.peek() == '²' || operator.peek() == '³' || operator.peek() == '√'
+                        operate(number, operator);
+                    }
+                    while (!operator.isEmpty() && (operator.peek() == '²' || operator.peek() == '³' || operator.peek() == '√'
                         || operator.peek() == 's' || operator.peek() == 'c' || operator.peek() == 't' || operator.peek() == '㏑'
                         || operator.peek() == '!' || operator.peek() == '%')) {
-                    operate_power(number, operator);
-                }
-                operator.push(st.charAt(0));
-            } else if (st.charAt(0) == 'x' || st.charAt(0) == '÷') {//若当前字符为  x , ÷
-                while (!operator.isEmpty()&&(operator.peek()=='x'||operator.peek()=='÷')){
-                    operate(number,operator);
-                }
-                while (!operator.isEmpty() && (operator.peek() == '²' || operator.peek() == '³' || operator.peek() == '√'
-                        || operator.peek() == 's' || operator.peek() == 'c' || operator.peek() == 't' || operator.peek() == '%'
-                        || operator.peek() == '㏑' || operator.peek() == '!' || operator.peek() == '^')) {
-                    operate_power(number, operator);
-                }
-                operator.push(st.charAt(0));
-            } else if (st.charAt(0) == '^') {
-                while (!operator.isEmpty() && (st.charAt(0) == '²' || st.charAt(0) == '³' || st.charAt(0) == '√'
-                        || operator.peek() == '%' || operator.peek() == '!' || operator.peek() == '^')) {
-                    operate_power(number, operator);
-                }
-                operator.push(st.charAt(0));
-            } else if (st.charAt(0) == '²' || st.charAt(0) == '³' || st.charAt(0) == '√' || st.charAt(0) == 's'
-                    || st.charAt(0) == 'c' || st.charAt(0) == 't' || st.charAt(0) == '%' || st.charAt(0) == '㏑'
-                    || st.charAt(0) == '!') {//若当前字符为 平方，立方，开根，sin，cos,tan，%，㏑，n!
-                while (!operator.isEmpty() && (operator.peek() == '²' || operator.peek() == '³'
-                        || operator.peek() == '√' || operator.peek() == '%' || operator.peek() == '!')) {
-                    operate_power(number, operator);
-                }
-                while (!operator.isEmpty() && (operator.peek() == '^')) {
-                    operate(number, operator);
-                }
-                operator.push(st.charAt(0));
-            }
-            else if(st.trim().charAt(0)=='('){
-                operator.push('(');
-            }
-            else if(st.trim().charAt(0)==')'){
-                while (operator.peek()!='('){
-                    if (operator.peek() == '+' || operator.peek() == '-' || operator.peek() == 'x'
-                            || operator.peek() == '÷' || operator.peek() == '^') {
-                        operate(number, operator);
-                    } else if (operator.peek() == '√' || operator.peek() == '²' || operator.peek() == '³'
-                            || operator.peek() == 's' || operator.peek() == 'c' || operator.peek() == 't'
-                            || operator.peek() == '%' || operator.peek() == '!' || operator.peek() == '㏑') {
                         operate_power(number, operator);
                     }
+                    operator.push(st.charAt(0));
+                } else if (st.charAt(0) == 'x' || st.charAt(0) == '÷') {//若当前字符为  x , ÷
+                    while (!operator.isEmpty() && (operator.peek() == 'x' || operator.peek() == '÷')) {
+                        operate(number, operator);
+                    }
+                    while (!operator.isEmpty() && (operator.peek() == '²' || operator.peek() == '³' || operator.peek() == '√'
+                        || operator.peek() == 's' || operator.peek() == 'c' || operator.peek() == 't' || operator.peek() == '%'
+                        || operator.peek() == '㏑' || operator.peek() == '!' || operator.peek() == '^')) {
+                        operate_power(number, operator);
+                    }
+                    operator.push(st.charAt(0));
+                } else if (st.charAt(0) == '^') {
+                    while (!operator.isEmpty() && (st.charAt(0) == '²' || st.charAt(0) == '³' || st.charAt(0) == '√'
+                        || operator.peek() == '%' || operator.peek() == '!' || operator.peek() == '^')) {
+                        operate_power(number, operator);
+                    }
+                    operator.push(st.charAt(0));
+                } else if (st.charAt(0) == '²' || st.charAt(0) == '³' || st.charAt(0) == '√' || st.charAt(0) == 's'
+                    || st.charAt(0) == 'c' || st.charAt(0) == 't' || st.charAt(0) == '%' || st.charAt(0) == '㏑'
+                    || st.charAt(0) == '!') {//若当前字符为 平方，立方，开根，sin，cos,tan，%，㏑，n!
+                    while (!operator.isEmpty() && (operator.peek() == '²' || operator.peek() == '³'
+                        || operator.peek() == '√' || operator.peek() == '%' || operator.peek() == '!')) {
+                        operate_power(number, operator);
+                    }
+                    while (!operator.isEmpty() && (operator.peek() == '^')) {
+                        operate(number, operator);
+                    }
+                    operator.push(st.charAt(0));
+                } else if (st.trim().charAt(0) == '(') {
+                    operator.push('(');
+                } else if (st.trim().charAt(0) == ')') {
+                    while (operator.peek() != '(') {
+                        if (operator.peek() == '+' || operator.peek() == '-' || operator.peek() == 'x'
+                                || operator.peek() == '÷' || operator.peek() == '^') {
+                            operate(number, operator);
+                        } else if (operator.peek() == '√' || operator.peek() == '²' || operator.peek() == '³'
+                                || operator.peek() == 's' || operator.peek() == 'c' || operator.peek() == 't'
+                                || operator.peek() == '%' || operator.peek() == '!' || operator.peek() == '㏑') {
+                        operate_power(number, operator);
+                        }
+                    }
+                    operator.pop();
+                } else {
+                    number.push(Double.valueOf(st));
                 }
-                operator.pop();
             }
-            else {
-                number.push(Double.valueOf(st));
+            while (!operator.isEmpty()) {
+                if (operator.peek() == '+' || operator.peek() == '-' || operator.peek() == 'x'
+                        || operator.peek() == '÷' || operator.peek() == '^') {
+                    operate(number, operator);
+                } else if (operator.peek() == '√' || operator.peek() == '²' || operator.peek() == '³'
+                        || operator.peek() == 's' || operator.peek() == 'c' || operator.peek() == 't'
+                        || operator.peek() == '㏑' || operator.peek() == '%' || operator.peek() == '!') {
+                    operate_power(number, operator);
+                }
             }
-        }
-        while (!operator.isEmpty()) {
-            if (operator.peek() == '+' || operator.peek() == '-' || operator.peek() == 'x'
-                    || operator.peek() == '÷' || operator.peek() == '^') {
-                operate(number, operator);
-            } else if (operator.peek() == '√' || operator.peek() == '²' || operator.peek() == '³'
-                    || operator.peek() == 's' || operator.peek() == 'c' || operator.peek() == 't'
-                    || operator.peek() == '㏑' || operator.peek() == '%' || operator.peek() == '!') {
-                operate_power(number, operator);
-            }
+        } catch (Exception e) {
+            Toast.makeText(MainActivity.this, "输入错误，请检查后重新输入！", Toast.LENGTH_SHORT).show();
+            return 0;
         }
         return number.pop();
     }

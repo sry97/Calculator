@@ -18,7 +18,8 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:gravity="right"
-            android:textSize="50sp"/>
+            android:lines="1"
+            android:textSize="50sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -40,7 +41,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="sin"
-            android:textSize="30sp"
+            android:textSize="20sp"
             android:textAllCaps="false" />
 
         <Button
@@ -94,7 +95,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="cos"
-            android:textSize="30sp"
+            android:textSize="20sp"
             android:textAllCaps="false" />
 
         <Button
@@ -150,7 +151,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="tan"
-            android:textSize="30sp"
+            android:textSize="20sp"
             android:textAllCaps="false" />
 
 
